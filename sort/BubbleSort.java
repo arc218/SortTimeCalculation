@@ -1,14 +1,12 @@
 package sort;
 
-public class BubbleSort implements Sort {
-
-	int [] values;
+public class BubbleSort extends Sort {
 
 	/**
 	 * 配列をコピーする
 	 */
 	public BubbleSort(int [] values) {
-		this.values = copy(values);
+		super(values);
 	}
 
 	@Override

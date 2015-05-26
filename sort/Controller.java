@@ -12,18 +12,23 @@ public class Controller {
 
 	public static void main(String [] args) {
 		//ソート対象のサイズを指定
-		int size = 100000;
+		int size = 10000;
+
+		//反復回数
+		final int count = 100;
 
 		//対象データを作成
 		int [] values = createData(size);
 
-		//出力ファイルのパスを指定(任意に変更)
-		String path = "/Users/hiroki/Desktop/test.csv";
+		//出力ファイルのパスを指定(変更可能)
+		String path = "./result.csv";
 
 		initWriter(path);
 
 		Sort bubbleSort = new BubbleSort(values);
-		doSort(bubbleSort);
+		//doSort(bubbleSort);
+
+		doSort(bubbleSort, count, size);
 
 		//writerの解放(必ず最後に行う)
 		pw.close();
@@ -59,8 +64,20 @@ public class Controller {
 	 * 与えられたソートを実行して、結果を出力する
 	 */
 	private static void doSort(Sort sort) {
+		//writeValue(sort.getClass().toString());
 		long time = sort.calc();
 		writeValue(Long.toString(time));
+	}
+
+	private static void doSort(Sort sort, int count, int size) {
+		writeValue(sort.getClass().toString());
+		long time = sort.calc();
+		writeValue(Long.toString(time));
+		for (int i = 0; i < count - 1; i++) {
+			sort.updateData(createData(size));
+			time = sort.calc();
+			writeValue(Long.toString(time));
+		}
 	}
 
 	/**
