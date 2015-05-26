@@ -12,10 +12,10 @@ public class Controller {
 
 	public static void main(String [] args) {
 		//ソート対象のサイズを指定
-		int size = 10000;
+		int size = 100000;
 
 		//反復回数
-		final int count = 100;
+		final int count = 10;
 
 		//対象データを作成
 		int [] values = createData(size);
@@ -25,10 +25,13 @@ public class Controller {
 
 		initWriter(path);
 
-		Sort bubbleSort = new BubbleSort(values);
-		//doSort(bubbleSort);
+		//		Sort bubbleSort = new BubbleSort(values);
+		//
+		//		doSort(bubbleSort, count, size);
 
-		doSort(bubbleSort, count, size);
+		Sort combSort = new CombSort(values);
+
+		doSort(combSort, count, size);
 
 		//writerの解放(必ず最後に行う)
 		pw.close();

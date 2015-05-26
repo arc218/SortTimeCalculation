@@ -11,6 +11,7 @@ public class BubbleSort extends Sort {
 
 	@Override
 	public long calc() {
+		printValues();
 		long start = System.currentTimeMillis();
 		int size = values.length;
 		for (int i = 0; i < size - 1; i++) {

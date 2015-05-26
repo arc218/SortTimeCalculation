@@ -36,9 +36,11 @@ public abstract class Sort {
 	/**
 	 * ソートされているか確認する場合にのみ用いる
 	 */
-	public void printValues(int [] values) {
-		for (int val : values) {
-			System.out.println(val);
+	public void printValues() {
+		System.out.print("Data : ");
+		for (int val : this.values) {
+			System.out.print(val + " ");
 		}
+		System.out.println();
 	}
 }
