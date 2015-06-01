@@ -8,14 +8,14 @@ import java.util.Random;
 
 public class Controller {
 
-	static PrintWriter pw;
+	static private PrintWriter pw;
 
 	public static void main(String [] args) {
 		//ソート対象のサイズを指定
-		int size = 100000;
+		int size = 10000;
 
 		//反復回数
-		final int count = 10;
+		final int count = 100;
 
 		//対象データを作成
 		int [] values = createData(size);
@@ -25,13 +25,18 @@ public class Controller {
 
 		initWriter(path);
 
-		//		Sort bubbleSort = new BubbleSort(values);
-		//
-		//		doSort(bubbleSort, count, size);
+		Sort sort = new OddEvenSort(values);
 
-		Sort combSort = new CombSort(values);
+		doSort(sort, count, size);
 
-		doSort(combSort, count, size);
+		sort = new ShakerSort(createData(size));
+		doSort(sort, count, size);
+
+		sort = new CombSort(createData(size));
+		doSort(sort, count, size);
+
+		sort = new BubbleSort(createData(size));
+		doSort(sort, count, size);
 
 		//writerの解放(必ず最後に行う)
 		pw.close();
@@ -67,20 +72,21 @@ public class Controller {
 	 * 与えられたソートを実行して、結果を出力する
 	 */
 	private static void doSort(Sort sort) {
-		//writeValue(sort.getClass().toString());
+		pw.print(sort.getClass());
 		long time = sort.calc();
 		writeValue(Long.toString(time));
+		pw.println();
 	}
 
 	private static void doSort(Sort sort, int count, int size) {
-		writeValue(sort.getClass().toString());
+		pw.print(sort.getClass());
 		long time = sort.calc();
-		writeValue(Long.toString(time));
-		for (int i = 0; i < count - 1; i++) {
+		for (int i = 0; i < count; i++) {
 			sort.updateData(createData(size));
 			time = sort.calc();
 			writeValue(Long.toString(time));
 		}
+		pw.println();
 	}
 
 	/**
@@ -88,7 +94,7 @@ public class Controller {
 	 */
 	private static void writeValue(String time) {
 		System.out.println(time);
-		pw.println(time);//バッファに書かれる
+		pw.print(time + ",");//バッファに書かれる
 		pw.flush();//ファイルに書き込みを行う
 	}
 

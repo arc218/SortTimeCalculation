@@ -11,7 +11,6 @@ public class CombSort extends Sort {
 
 	@Override
 	public long calc() {
-		printValues();
 		long start = System.currentTimeMillis();
 		int size = values.length;
 		int h = size * 10 / 13;
@@ -19,9 +18,7 @@ public class CombSort extends Sort {
 			int swaps = 0;
 			for (int i = 0; i + h < size; ++i) {
 				if (values[i] > values[i + h]) {
-					int temp = values[i];
-					values[i] = values[i + h];
-					values[i + h] = temp;
+					swap(i, i + h);
 					++swaps;
 				}
 			}
