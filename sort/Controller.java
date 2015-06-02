@@ -12,31 +12,23 @@ public class Controller {
 
 	public static void main(String [] args) {
 		//ソート対象のサイズを指定
-		int size = 10000;
+		final int size = 10000;
 
 		//反復回数
 		final int count = 100;
-
-		//対象データを作成
-		int [] values = createData(size);
 
 		//出力ファイルのパスを指定(変更可能)
 		String path = "./result.csv";
 
 		initWriter(path);
 
-		Sort sort = new OddEvenSort(values);
+		doSort(new OddEvenSort(), count, size);
 
-		doSort(sort, count, size);
+		doSort(new ShakerSort(), count, size);
 
-		sort = new ShakerSort(createData(size));
-		doSort(sort, count, size);
+		doSort(new CombSort(), count, size);
 
-		sort = new CombSort(createData(size));
-		doSort(sort, count, size);
-
-		sort = new BubbleSort(createData(size));
-		doSort(sort, count, size);
+		doSort(new BubbleSort(), count, size);
 
 		//writerの解放(必ず最後に行う)
 		pw.close();
@@ -71,16 +63,19 @@ public class Controller {
 	/**
 	 * 与えられたソートを実行して、結果を出力する
 	 */
-	private static void doSort(Sort sort) {
+	private static void doSort(BaseSort sort) {
 		pw.print(sort.getClass());
 		long time = sort.calc();
 		writeValue(Long.toString(time));
 		pw.println();
 	}
 
-	private static void doSort(Sort sort, int count, int size) {
-		pw.print(sort.getClass());
-		long time = sort.calc();
+	/**
+	 * 与えられたソートを実行して、結果を出力する
+	 */
+	private static void doSort(BaseSort sort, int count, int size) {
+		pw.print(sort.getClass().getSimpleName());
+		long time = 0l;
 		for (int i = 0; i < count; i++) {
 			sort.updateData(createData(size));
 			time = sort.calc();

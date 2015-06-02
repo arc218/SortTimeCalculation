@@ -1,15 +1,15 @@
 package sort;
 
-public abstract class Sort {
+public abstract class BaseSort {
 
 	//ランダムに作成されたデータ
 	int [] values;
 
-	public Sort(int [] values) {
+	public BaseSort(int [] values) {
 		copy(values);
 	}
 
-	public Sort() {
+	public BaseSort() {
 	}
 
 	public void updateData(int [] values) {

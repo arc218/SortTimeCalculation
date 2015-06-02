@@ -1,12 +1,12 @@
 package sort;
 
-public class BubbleSort extends Sort {
+public class BubbleSort extends BaseSort {
 
-	/**
-	 * 配列をコピーする
-	 */
 	public BubbleSort(int [] values) {
 		super(values);
+	}
+
+	public BubbleSort() {
 	}
 
 	@Override

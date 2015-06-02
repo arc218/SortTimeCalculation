@@ -1,12 +1,12 @@
 package sort;
 
-public class CombSort extends Sort {
+public class CombSort extends BaseSort {
 
-	/**
-	 * 配列をコピーする
-	 */
 	public CombSort(int [] values) {
 		super(values);
+	}
+
+	public CombSort() {
 	}
 
 	@Override

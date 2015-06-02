@@ -1,9 +1,12 @@
 package sort;
 
-public class ShakerSort extends Sort {
+public class ShakerSort extends BaseSort {
 
 	public ShakerSort(int [] values) {
 		super(values);
+	}
+
+	public ShakerSort() {
 	}
 
 	@Override

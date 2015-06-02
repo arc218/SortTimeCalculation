@@ -1,9 +1,12 @@
 package sort;
 
-public class OddEvenSort extends Sort {
+public class OddEvenSort extends BaseSort {
 
 	public OddEvenSort(int [] values) {
 		super(values);
+	}
+
+	public OddEvenSort() {
 	}
 
 	@Override
