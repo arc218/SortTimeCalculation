@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Random;
 
-public class Controller {
+public class Main {
 
 	static private PrintWriter pw;
 
@@ -18,17 +18,11 @@ public class Controller {
 		final int count = 100;
 
 		//出力ファイルのパスを指定(変更可能)
-		String path = "./result.csv";
+		String path = "./Data/result.csv";
 
 		initWriter(path);
 
-		doSort(new OddEvenSort(), count, size);
-
-		doSort(new ShakerSort(), count, size);
-
-		doSort(new CombSort(), count, size);
-
-		doSort(new BubbleSort(), count, size);
+		doSort(count, size);
 
 		//writerの解放(必ず最後に行う)
 		pw.close();
@@ -65,7 +59,7 @@ public class Controller {
 	 */
 	private static void doSort(BaseSort sort) {
 		pw.print(sort.getClass());
-		long time = sort.calc();
+		long time = sort.sort();
 		writeValue(Long.toString(time));
 		pw.println();
 	}
@@ -74,14 +68,41 @@ public class Controller {
 	 * 与えられたソートを実行して、結果を出力する
 	 */
 	private static void doSort(BaseSort sort, int count, int size) {
-		pw.print(sort.getClass().getSimpleName());
+		pw.print(sort.getClass().getSimpleName() + ",");
 		long time = 0l;
 		for (int i = 0; i < count; i++) {
 			sort.updateData(createData(size));
-			time = sort.calc();
+			time = sort.sort();
 			writeValue(Long.toString(time));
 		}
 		pw.println();
+	}
+
+	/**
+	 *全てのソートを実行
+	 */
+	private static void doSort(int count, int size) {
+		doSort(new OddEvenSort(), count, size);
+
+		doSort(new ShakerSort(), count, size);
+
+		doSort(new CombSort(), count, size);
+
+		doSort(new BubbleSort(), count, size);
+
+		doSort(new GnomeSort(), count, size);
+
+		doSort(new HeapSort(), count, size);
+
+		doSort(new QuickSort(), count, size);
+
+		doSort(new SelectionSort(), count, size);
+
+		doSort(new ShellSort(), count, size);
+
+		doSort(new InsertionSort(), count, size);
+
+		doSort(new MergeSort(), count, size);
 	}
 
 	/**

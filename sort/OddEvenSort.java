@@ -2,15 +2,8 @@ package sort;
 
 public class OddEvenSort extends BaseSort {
 
-	public OddEvenSort(int [] values) {
-		super(values);
-	}
-
-	public OddEvenSort() {
-	}
-
 	@Override
-	public long calc() {
+	public long sort() {
 		long start = System.currentTimeMillis();
 		int size = values.length;
 		int flag = 1;

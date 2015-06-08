@@ -1,9 +1,10 @@
 package sort;
 
+
 public abstract class BaseSort {
 
 	//ランダムに作成されたデータ
-	int [] values;
+	protected int [] values;
 
 	public BaseSort(int [] values) {
 		copy(values);
@@ -20,12 +21,12 @@ public abstract class BaseSort {
 	 * ソートの実装を記述する
 	 * return : 計算時間
 	 */
-	public abstract long calc();
+	public abstract long sort();
 
 	/**
 	 * データのコピーを行う
 	 */
-	public void copy(int [] values) {
+	protected void copy(int [] values) {
 		int size = values.length;
 		this.values = new int [size];
 		for (int i = 0; i < size; i++) {
@@ -44,7 +45,7 @@ public abstract class BaseSort {
 		System.out.println();
 	}
 
-	public void swap(int i, int j) {
+	protected void swap(int i, int j) {
 		int temp = values[i];
 		values[i] = values[j];
 		values[j] = temp;

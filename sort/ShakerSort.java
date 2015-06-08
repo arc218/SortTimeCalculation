@@ -2,15 +2,8 @@ package sort;
 
 public class ShakerSort extends BaseSort {
 
-	public ShakerSort(int [] values) {
-		super(values);
-	}
-
-	public ShakerSort() {
-	}
-
 	@Override
-	public long calc() {
+	public long sort() {
 		long start = System.currentTimeMillis();
 		int size = values.length;
 		int top = 0;

@@ -2,15 +2,8 @@ package sort;
 
 public class CombSort extends BaseSort {
 
-	public CombSort(int [] values) {
-		super(values);
-	}
-
-	public CombSort() {
-	}
-
 	@Override
-	public long calc() {
+	public long sort() {
 		long start = System.currentTimeMillis();
 		int size = values.length;
 		int h = size * 10 / 13;
