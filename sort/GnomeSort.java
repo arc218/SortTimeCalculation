@@ -4,7 +4,7 @@ public class GnomeSort extends BaseSort {
 
 	@Override
 	public long sort() {
-		long start = System.currentTimeMillis();
+		long start = System.nanoTime();
 		int size = values.length;
 		int i = 1;
 		while (i < size) {
@@ -18,7 +18,7 @@ public class GnomeSort extends BaseSort {
 				}
 			}
 		}
-		long end = System.currentTimeMillis();
+		long end = System.nanoTime();
 		return end - start;
 	}
 

@@ -4,7 +4,7 @@ public class ShakerSort extends BaseSort {
 
 	@Override
 	public long sort() {
-		long start = System.currentTimeMillis();
+		long start = System.nanoTime();
 		int size = values.length;
 		int top = 0;
 		int bottom = size - 1;
@@ -36,7 +36,7 @@ public class ShakerSort extends BaseSort {
 				break;
 			}
 		}
-		long end = System.currentTimeMillis();
+		long end = System.nanoTime();
 		return end - start;
 	}
 

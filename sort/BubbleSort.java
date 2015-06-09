@@ -4,7 +4,7 @@ public class BubbleSort extends BaseSort {
 
 	@Override
 	public long sort() {
-		long start = System.currentTimeMillis();
+		long start = System.nanoTime();
 		int size = values.length;
 		for (int i = 0; i < size - 1; i++) {
 			for (int j = size - 1; j > i; j--) {
@@ -13,7 +13,7 @@ public class BubbleSort extends BaseSort {
 				}
 			}
 		}
-		long end = System.currentTimeMillis();
+		long end = System.nanoTime();
 		return end - start;
 	}
 

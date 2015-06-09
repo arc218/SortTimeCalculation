@@ -4,7 +4,7 @@ public class ShellSort extends BaseSort {
 
 	@Override
 	public long sort() {
-		long start = System.currentTimeMillis();
+		long start = System.nanoTime();
 		int size = values.length;
 
 		for (int gap = size / 2; gap > 0; gap /= 2) {
@@ -22,7 +22,7 @@ public class ShellSort extends BaseSort {
 				}
 			}
 		}
-		long end = System.currentTimeMillis();
+		long end = System.nanoTime();
 		return end - start;
 	}
 }

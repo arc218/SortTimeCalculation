@@ -4,7 +4,7 @@ public class OddEvenSort extends BaseSort {
 
 	@Override
 	public long sort() {
-		long start = System.currentTimeMillis();
+		long start = System.nanoTime();
 		int size = values.length;
 		int flag = 1;
 		while (flag == 1) {
@@ -23,7 +23,7 @@ public class OddEvenSort extends BaseSort {
 				}
 			}
 		}
-		long end = System.currentTimeMillis();
+		long end = System.nanoTime();
 		return end - start;
 	}
 

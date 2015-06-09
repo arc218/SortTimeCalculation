@@ -4,7 +4,7 @@ public class InsertionSort extends BaseSort {
 
 	@Override
 	public long sort() {
-		long start = System.currentTimeMillis();
+		long start = System.nanoTime();
 		int size = values.length;
 		for (int i = 0; i < size; i++) {
 			int ins = values[i];
@@ -17,7 +17,7 @@ public class InsertionSort extends BaseSort {
 				}
 			}
 		}
-		long end = System.currentTimeMillis();
+		long end = System.nanoTime();
 		return end - start;
 	}
 }

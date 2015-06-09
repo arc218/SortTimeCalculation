@@ -4,7 +4,7 @@ public class CombSort extends BaseSort {
 
 	@Override
 	public long sort() {
-		long start = System.currentTimeMillis();
+		long start = System.nanoTime();
 		int size = values.length;
 		int h = size * 10 / 13;
 		while (true) {
@@ -24,7 +24,7 @@ public class CombSort extends BaseSort {
 				h = h * 10 / 13;
 			}
 		}
-		long end = System.currentTimeMillis();
+		long end = System.nanoTime();
 		return end - start;
 	}
 }

@@ -12,13 +12,13 @@ public class Main {
 
 	public static void main(String [] args) {
 		//ソート対象のサイズを指定
-		final int size = 10000;
+		final int size = 100000;
 
 		//反復回数
 		final int count = 100;
 
 		//出力ファイルのパスを指定(変更可能)
-		String path = "./Data/result.csv";
+		String path = "./Data/test.csv";
 
 		initWriter(path);
 
@@ -82,34 +82,34 @@ public class Main {
 	 *全てのソートを実行
 	 */
 	private static void doSort(int count, int size) {
-		doSort(new OddEvenSort(), count, size);
+		//		doSort(new OddEvenSort(), count, size);
+		//
+		//		doSort(new ShakerSort(), count, size);
+		//
+		//		doSort(new CombSort(), count, size);
+		//
+		//		doSort(new BubbleSort(), count, size);
+		//
+		//		doSort(new GnomeSort(), count, size);
+		//
+		//		doSort(new HeapSort(), count, size);
 
-		doSort(new ShakerSort(), count, size);
+		//doSort(new QuickSort(), count, size);
 
-		doSort(new CombSort(), count, size);
-
-		doSort(new BubbleSort(), count, size);
-
-		doSort(new GnomeSort(), count, size);
-
-		doSort(new HeapSort(), count, size);
-
-		doSort(new QuickSort(), count, size);
-
-		doSort(new SelectionSort(), count, size);
-
+		//		doSort(new SelectionSort(), count, size);
+		//
 		doSort(new ShellSort(), count, size);
-
-		doSort(new InsertionSort(), count, size);
-
-		doSort(new MergeSort(), count, size);
+		//
+		//		doSort(new InsertionSort(), count, size);
+		//
+		//		doSort(new MergeSort(), count, size);
 	}
 
 	/**
 	 * 結果をファイルに書き込む
 	 */
 	private static void writeValue(String time) {
-		System.out.println(time);
+		//System.out.println(time);
 		pw.print(time + ",");//バッファに書かれる
 		pw.flush();//ファイルに書き込みを行う
 	}

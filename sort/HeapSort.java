@@ -4,11 +4,11 @@ public class HeapSort extends BaseSort {
 
 	@Override
 	public long sort() {
-		long start = System.currentTimeMillis();
+		long start = System.nanoTime();
 		int right = values.length - 1;
 		int left = 0;
 		sort(right, left);
-		long end = System.currentTimeMillis();
+		long end = System.nanoTime();
 		return end - start;
 	}
 
