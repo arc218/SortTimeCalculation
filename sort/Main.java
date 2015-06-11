@@ -22,7 +22,7 @@ public class Main {
 
 		initWriter(path);
 
-		doSort(count, size);
+		doAllSort(count, size);
 
 		//writerの解放(必ず最後に行う)
 		pw.close();
@@ -81,28 +81,18 @@ public class Main {
 	/**
 	 *全てのソートを実行
 	 */
-	private static void doSort(int count, int size) {
-		//		doSort(new OddEvenSort(), count, size);
-		//
-		//		doSort(new ShakerSort(), count, size);
-		//
-		//		doSort(new CombSort(), count, size);
-		//
-		//		doSort(new BubbleSort(), count, size);
-		//
-		//		doSort(new GnomeSort(), count, size);
-		//
-		//		doSort(new HeapSort(), count, size);
-
-		//doSort(new QuickSort(), count, size);
-
-		//		doSort(new SelectionSort(), count, size);
-		//
+	private static void doAllSort(int count, int size) {
+		doSort(new OddEvenSort(), count, size);
+		doSort(new ShakerSort(), count, size);
+		doSort(new CombSort(), count, size);
+		doSort(new BubbleSort(), count, size);
+		doSort(new GnomeSort(), count, size);
+		doSort(new HeapSort(), count, size);
+		doSort(new QuickSort(), count, size);
+		doSort(new SelectionSort(), count, size);
 		doSort(new ShellSort(), count, size);
-		//
-		//		doSort(new InsertionSort(), count, size);
-		//
-		//		doSort(new MergeSort(), count, size);
+		doSort(new InsertionSort(), count, size);
+		doSort(new MergeSort(), count, size);
 	}
 
 	/**
