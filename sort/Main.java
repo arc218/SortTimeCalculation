@@ -11,36 +11,41 @@ public class Main {
 	static private PrintWriter pw;
 
 	public static void main(String [] args) {
-		//ソート対象のサイズを指定
+		//size
 		final int size = 100000;
 
-		//反復回数
+		//repeat count
 		final int count = 100;
 
-		//出力ファイルのパスを指定(変更可能)
+		//Defines a path
 		String path = "./Data/test.csv";
 
 		initWriter(path);
 
 		doAllSort(count, size);
 
-		//writerの解放(必ず最後に行う)
+		//		HeapSort sort = new HeapSort();
+		//		sort.updateData(new int [] {1, 9, 8, 3, 4, 6, 4, 9, 2});
+		//		sort.sort();
+
 		pw.close();
+
+		System.out.println("the process is terminated");
 	}
 
 	/**
-	 * writerを初期化
+	 * Inits writer
 	 */
 	private static void initWriter(String path) {
 		try {
 			pw = new PrintWriter(new BufferedWriter(new FileWriter(path, false)));
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("Path is wrong");
 		}
 	}
 
 	/**
-	 * 指定されたサイズのデータを作成
+	 * Creates Data
 	 */
 	private static int [] createData(int size) {
 		int [] values = new int [size];
@@ -48,24 +53,13 @@ public class Main {
 		Random random = new Random();
 
 		for (int i = 0; i < values.length; i++) {
-			//０から引数-1までの値をとる
 			values[i] = random.nextInt(10000);
 		}
 		return values;
 	}
 
 	/**
-	 * 与えられたソートを実行して、結果を出力する
-	 */
-	private static void doSort(BaseSort sort) {
-		pw.print(sort.getClass());
-		long time = sort.sort();
-		writeValue(Long.toString(time));
-		pw.println();
-	}
-
-	/**
-	 * 与えられたソートを実行して、結果を出力する
+	 * Performs a sort and Prints a result
 	 */
 	private static void doSort(BaseSort sort, int count, int size) {
 		pw.print(sort.getClass().getSimpleName() + ",");
@@ -79,7 +73,7 @@ public class Main {
 	}
 
 	/**
-	 *全てのソートを実行
+	 * Performs all sorts
 	 */
 	private static void doAllSort(int count, int size) {
 		doSort(new OddEvenSort(), count, size);
@@ -96,12 +90,12 @@ public class Main {
 	}
 
 	/**
-	 * 結果をファイルに書き込む
+	 * Prints a result
 	 */
 	private static void writeValue(String time) {
 		//System.out.println(time);
-		pw.print(time + ",");//バッファに書かれる
-		pw.flush();//ファイルに書き込みを行う
+		pw.print(time + ",");
+		pw.flush();
 	}
 
 }

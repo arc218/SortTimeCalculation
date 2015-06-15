@@ -1,9 +1,7 @@
 package sort;
 
-
 public abstract class BaseSort {
 
-	//ランダムに作成されたデータ
 	protected int [] values;
 
 	public BaseSort(int [] values) {
@@ -18,13 +16,13 @@ public abstract class BaseSort {
 	}
 
 	/**
-	 * ソートの実装を記述する
-	 * return : 計算時間
+	 * Performs sort
+	 * return : calculation time
 	 */
 	public abstract long sort();
 
 	/**
-	 * データのコピーを行う
+	 * Copys a data
 	 */
 	protected void copy(int [] values) {
 		int size = values.length;
@@ -35,7 +33,7 @@ public abstract class BaseSort {
 	}
 
 	/**
-	 * ソートされているか確認する場合にのみ用いる
+	 * Prints a data
 	 */
 	public void printValues() {
 		System.out.print("Data : ");
@@ -45,6 +43,9 @@ public abstract class BaseSort {
 		System.out.println();
 	}
 
+	/**
+	 * Swapping
+	 */
 	protected void swap(int i, int j) {
 		int temp = values[i];
 		values[i] = values[j];
