@@ -2,29 +2,28 @@ package sort;
 
 public abstract class BaseSort {
 
-	protected int [] values;
+	protected int[] values;
 
-	public BaseSort(int [] values) {
+	public BaseSort(int[] values) {
 		copy(values);
 	}
 
 	public BaseSort() {
 	}
 
-	public void updateData(int [] values) {
+	public void updateData(int[] values) {
 		this.values = values;
 	}
 
 	/**
-	 * Performs sort
-	 * return : calculation time
+	 * ソートを行う
 	 */
 	public abstract long sort();
 
 	/**
-	 * Copys a data
+	 * 配列をコピーする
 	 */
-	protected void copy(int [] values) {
+	protected void copy(int[] values) {
 		int size = values.length;
 		this.values = new int [size];
 		for (int i = 0; i < size; i++) {
@@ -33,7 +32,7 @@ public abstract class BaseSort {
 	}
 
 	/**
-	 * Prints a data
+	 * 配列の出力
 	 */
 	public void printValues() {
 		System.out.print("Data : ");
@@ -44,7 +43,7 @@ public abstract class BaseSort {
 	}
 
 	/**
-	 * Swapping
+	 * 配列の要素の交換
 	 */
 	protected void swap(int i, int j) {
 		int temp = values[i];

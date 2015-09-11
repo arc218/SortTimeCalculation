@@ -5,36 +5,43 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Random;
+import java.util.StringJoiner;
 
 public class Main {
 
 	static private PrintWriter pw;
 
-	public static void main(String [] args) {
+	public static void main(String[] args) {
 		//size
-		final int size = 100000;
+		final int size = 15000;
 
 		//repeat count
 		final int count = 100;
 
 		//Defines a path
-		String path = "./Data/test.csv";
+		String path = "./Data/result.csv";
 
 		initWriter(path);
 
+		System.out.println("ソート開始");
+
 		doAllSort(count, size);
 
-		//		HeapSort sort = new HeapSort();
-		//		sort.updateData(new int [] {1, 9, 8, 3, 4, 6, 4, 9, 2});
-		//		sort.sort();
+		System.out.println("ソート終了");
 
 		pw.close();
 
 		System.out.println("the process is terminated");
 	}
 
+	protected static void swap(int i, int j, double[] values) {
+		double temp = values[i];
+		values[i] = values[j];
+		values[j] = temp;
+	}
+
 	/**
-	 * Inits writer
+	 * Writerの初期化
 	 */
 	private static void initWriter(String path) {
 		try {
@@ -45,35 +52,39 @@ public class Main {
 	}
 
 	/**
-	 * Creates Data
+	 * データを作成する
 	 */
-	private static int [] createData(int size) {
-		int [] values = new int [size];
+	private static int[] createData(int size) {
+		int[] values = new int [size];
 
-		Random random = new Random();
+		long seed = System.currentTimeMillis();
+
+		Random random = new Random(seed);
 
 		for (int i = 0; i < values.length; i++) {
-			values[i] = random.nextInt(10000);
+			values[i] = random.nextInt(size);
 		}
 		return values;
 	}
 
 	/**
-	 * Performs a sort and Prints a result
+	 * ソートを実行して結果を出力する
 	 */
 	private static void doSort(BaseSort sort, int count, int size) {
-		pw.print(sort.getClass().getSimpleName() + ",");
+		StringJoiner joiner = new StringJoiner(",");
+		joiner.add(sort.getClass().getSimpleName());
 		long time = 0l;
 		for (int i = 0; i < count; i++) {
 			sort.updateData(createData(size));
 			time = sort.sort();
-			writeValue(Long.toString(time));
+			joiner.add(Long.toString(time));
 		}
+		writeValue(joiner.toString());
 		pw.println();
 	}
 
 	/**
-	 * Performs all sorts
+	 * すべてのソートを実行する
 	 */
 	private static void doAllSort(int count, int size) {
 		doSort(new OddEvenSort(), count, size);
@@ -90,11 +101,11 @@ public class Main {
 	}
 
 	/**
-	 * Prints a result
+	 * 結果をcsvに出力する
 	 */
 	private static void writeValue(String time) {
 		//System.out.println(time);
-		pw.print(time + ",");
+		pw.print(time);
 		pw.flush();
 	}
 
