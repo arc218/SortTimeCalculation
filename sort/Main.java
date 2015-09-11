@@ -18,6 +18,7 @@ public class Main {
 		//repeat count
 		final int count = 100;
 
+		//System.out.println();
 		//Defines a path
 		String path = "./Data/result.csv";
 
