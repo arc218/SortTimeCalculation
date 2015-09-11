@@ -18,7 +18,6 @@ public class Main {
 		//repeat count
 		final int count = 100;
 
-		//System.out.println();
 		//Defines a path
 		String path = "./Data/result.csv";
 
@@ -32,7 +31,6 @@ public class Main {
 
 		pw.close();
 
-		System.out.println("the process is terminated");
 	}
 
 	protected static void swap(int i, int j, double[] values) {
